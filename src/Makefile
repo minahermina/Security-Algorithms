@@ -1,26 +1,22 @@
-# Variables
-JAVA_FILES = $(wildcard *.java)
-CLASS_FILES = $(JAVA_FILES:.java=.class)
-MAIN_CLASS = Main # Change this to your main class name
+JAVA_FILE = lfsr
+CLASS_FILE = $(JAVA_FILE).class
 
-# Targets
-all: compile
+all: $(CLASS_FILE)
 
-compile: $(CLASS_FILES)
-
-%.class: %.java
-	@echo "[INFO] Compiling $< to $(CLASS_FILES)"
+$(CLASS_FILE): $(JAVA_FILE).java
+	@echo "[INFO] Compiling $< to $@"
 	@echo -n "---> "
 	javac $<
 
-run: compile
-	@echo "[INFO] Running $(MAIN_CLASS)..."
+run: all
+	@echo "[INFO] Running $(JAVA_FILE)..."
 	@echo -n "---> "
-	java $(MAIN_CLASS)
+	java $(JAVA_FILE)
 
 clean:
-	@echo "[INFO] Cleaning up $(CLASS_FILES)"
+	@echo "[INFO] Cleaning up $(CLASS_FILE)"
 	@echo -n "---> "
-	rm -f *.class
+	rm -f $(CLASS_FILE)
 
-.PHONY: all compile run clean
+.PHONY: all run clean
+
