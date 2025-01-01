@@ -459,7 +459,7 @@ public class DES {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("ZBY: ");
+        System.out.print("1) plaintext in hexadecimal\n2) plaintext in ASCII characters\nEnter your choice: ");
         int choice = scanner.nextInt();
         String plaintext = "";
         String bin_plaintext = "";
